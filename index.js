@@ -120,17 +120,14 @@ tablicaStudentow.map((element)=> {
 kont_div2.innerHTML = zmienna2;
 
 
-function Person(name, id){
-    this.name = name;
-    this.id = id;
-}
 
-var Person = [
-    new Person('Mike', 1001),
-    new Person('Jola', 1002),
-    new Person('Wika', 1003),
+
+// var Person = [
+//     new Person('Mike', 1001),
+//     new Person('Jola', 1002),
+//     new Person('Wika', 1003),
     
-]
+// ]
 
 
 // function Student(adres, status){
@@ -138,39 +135,56 @@ var Person = [
 //     this.status = status;
 //     }
 
-// var Student = [
-//     new Student('Reda', 1001),
-//     new Student('Sopot', 1002),
-//     new Student('none', 1003),
-        
-//     ]
+
 
 // function Teacher(liczba_h, staz){
 //     this.liczba_h = liczba_h;
 //     this.staz = staz
 // }
 
-// var Teacher = [
-//     new Teacher('Jolanta', 1001),
-//     new Teacher('Jola', 1002),
-//     new Teacher('Wika', 1003),
-    
-]
+function Person(name, id){
+    this.name = name;
+    this.id = id;
+};
 
-Person.prototype.displayInfo = function(){
-    console.log('Student ' + this.name)
-}
 
-function Student(name, id){
+
+
+// Person.prototype.displayInfo = function(){
+//     console.log('Student ' + this.name)
+// }
+
+function Student(name, id, stp){
     Person.call(this, name, id);
     this.role = 'student';
-}
+    this.stp = stp;
+};
 
 Student.prototype = Object.create(Person.prototype);
 Student.prototype.constructor = Student;
 
+function Teacher(liczba_h, staz){
+    Person.call(this, name, id);
+    this.role = 'teacher';
+};
 
+Teacher.prototype = Object.create(Person.prototype);
+Teacher.prototype.constructor = Teacher;
 
+var Student = [
+    new Student('Reda', 1001, 'zaoczne'),
+    new Student('Sopot', 1002, 'zaoczne'),
+    new Student('none', 1003, 'dzienne'),
+        
+    ];
+
+var Teacher = [
+        new Teacher('Jolanta', 1001),
+        new Teacher('Jola', 1002),
+        new Teacher('Wika', 1003),
+        
+    ]
+    
 
 
 
