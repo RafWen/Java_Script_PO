@@ -133,33 +133,43 @@ var Person = [
 ]
 
 
-function Student(adres, status){
-    this.adres = adres;
-    this.status = status;
-    }
+// function Student(adres, status){
+//     this.adres = adres;
+//     this.status = status;
+//     }
 
-var Student = [
-    new Student('Reda', 1001),
-    new Student('Sopot', 1002),
-    new Student('none', 1003),
+// var Student = [
+//     new Student('Reda', 1001),
+//     new Student('Sopot', 1002),
+//     new Student('none', 1003),
         
-    ]
+//     ]
 
-function Teacher(liczba_h, staz){
-    this.liczba_h = liczba_h;
-    this.staz = staz
-}
+// function Teacher(liczba_h, staz){
+//     this.liczba_h = liczba_h;
+//     this.staz = staz
+// }
 
-var Teacher = [
-    new Teacher('Jolanta', 1001),
-    new Teacher('Jola', 1002),
-    new Teacher('Wika', 1003),
+// var Teacher = [
+//     new Teacher('Jolanta', 1001),
+//     new Teacher('Jola', 1002),
+//     new Teacher('Wika', 1003),
     
 ]
 
 Person.prototype.displayInfo = function(){
     console.log('Student ' + this.name)
 }
+
+function Student(name, id){
+    Person.call(this, name, id);
+    this.role = 'student';
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+
 
 
 
